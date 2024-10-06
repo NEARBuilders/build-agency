@@ -1,5 +1,5 @@
-import { NETWORK_ID, Wallet } from '../lib/near';
-import { create as createStore } from 'zustand';
+import { NETWORK_ID, Wallet } from "../lib/near";
+import { create as createStore } from "zustand";
 
 interface StoreState {
   wallet: Wallet | undefined;
@@ -13,11 +13,11 @@ interface StoreState {
 // Store to share wallet and signed account
 export const useWallet = createStore<StoreState>((set) => ({
   wallet: undefined,
-  signedAccountId: '',
+  signedAccountId: "",
   networkId: NETWORK_ID,
   setNetworkId: (networkId) => set({ networkId }),
   setWallet: (wallet) => set({ wallet }),
   setSignedAccountId: (signedAccountId) => {
     return set({ signedAccountId });
-  }
+  },
 }));

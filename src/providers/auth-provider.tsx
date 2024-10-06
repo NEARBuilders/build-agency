@@ -1,23 +1,23 @@
-import { useWallet } from '../hooks/use-wallet';
-import { Wallet } from '../lib/near';
-import React, { useEffect } from 'react';
+import { useWallet } from "../hooks/use-wallet";
+import { Wallet } from "../lib/near";
+import React, { useEffect } from "react";
 
 type AuthProviderProps = {
   children: React.ReactNode;
 };
 
 const contractPerNetwork = {
-  mainnet: 'v1.signer',
-  testnet: 'v1.signer-dev.testnet'
+  mainnet: "v1.signer",
+  testnet: "v1.signer-dev.testnet",
 };
 
 const MPC_VARIABLE = {
-  MPC_CONTRACT_ID_TESTNET: 'v1.signer-dev.testnet',
-  MPC_CONTRACT_ID_MAINNET: 'v1.signer',
+  MPC_CONTRACT_ID_TESTNET: "v1.signer-dev.testnet",
+  MPC_CONTRACT_ID_MAINNET: "v1.signer",
   MPC_PUBLIC_KEY_TESTNET:
-    'secp256k1:54hU5wcCmVUPFWLDALXMh1fFToZsVXrx9BbTbHzSfQq1Kd1rJZi52iPa4QQxo6s5TgjWqgpY8HamYuUDzG6fAaUq',
+    "secp256k1:54hU5wcCmVUPFWLDALXMh1fFToZsVXrx9BbTbHzSfQq1Kd1rJZi52iPa4QQxo6s5TgjWqgpY8HamYuUDzG6fAaUq",
   MPC_PUBLIC_KEY_MAINNET:
-    'secp256k1:3tFRbMqmoa6AAALMrEFAYCEoHcqKxeW38YptwowBVBtXK1vo36HDbUWuR6EZmoK4JcH6HDkNMGGqP1ouV7VZUWya'
+    "secp256k1:3tFRbMqmoa6AAALMrEFAYCEoHcqKxeW38YptwowBVBtXK1vo36HDbUWuR6EZmoK4JcH6HDkNMGGqP1ouV7VZUWya",
 };
 
 const getNearContract = (networkId: string) => contractPerNetwork[networkId];
@@ -29,14 +29,14 @@ export default function AuthProvider({ children }: AuthProviderProps) {
   useEffect(() => {
     const wallet = new Wallet({
       createAccessKeyFor: getNearContract(networkId),
-      networkId: networkId
+      networkId: networkId,
     });
     wallet.startUp(setSignedAccountId);
 
     setWallet(wallet);
   }, [networkId]);
 
-  console.log('signedAccountId', signedAccountId);
+  console.log("signedAccountId", signedAccountId);
 
   return <>{children}</>;
 }

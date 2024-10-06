@@ -16,8 +16,12 @@ function Home() {
       </div>
       <div className="container-footer">
         <div className="button-container">
-          <Link to="/join" className="cta">Join 🚀</Link>
-          <Link to="/stake" className="cta">Stake 🔒</Link>
+          <Link to="/join" className="cta">
+            Join 🚀
+          </Link>
+          <Link to="/stake" className="cta">
+            Stake 🔒
+          </Link>
         </div>
       </div>
     </div>

@@ -1,13 +1,12 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Layout } from '../components/layout'
-import JoinButton from '../components/join-button';
+import { createFileRoute } from "@tanstack/react-router";
+import { Layout } from "../components/layout";
+import JoinButton from "../components/join-button";
 
 export const Route = createFileRoute("/join")({
   component: Join,
 });
 
 function Join() {
-
   return (
     <Layout>
       <div className="join-container">

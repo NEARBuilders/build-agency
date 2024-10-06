@@ -33,12 +33,14 @@ export function Layout({ children, className = "" }: LayoutProps) {
             </button>
           </>
         ) : (
-          <><button
-          onClick={() => wallet?.signIn()}
-          style={{ float: "right", marginTop: "1rem" }}
-        >
-          login
-        </button></>
+          <>
+            <button
+              onClick={() => wallet?.signIn()}
+              style={{ float: "right", marginTop: "1rem" }}
+            >
+              login
+            </button>
+          </>
         )}
       </div>
       <div className="layout-content">{children}</div>
